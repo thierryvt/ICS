@@ -39,11 +39,6 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Chauffeur.cs" />
-    <Compile Include="Entities\Opdracht.cs" />
-    <Compile Include="Entities\Rit.cs" />
-    <Compile Include="Entities\Tankbeurt.cs" />
-    <Compile Include="Entities\Vrachtwagen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
