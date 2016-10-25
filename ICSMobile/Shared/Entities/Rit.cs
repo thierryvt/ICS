@@ -8,6 +8,7 @@ namespace Domain.Entities
 {
     class Rit
     {
+        public int RitID { get; set; }
         public string NrPlaat { get; set; }
         public double BeginKm { get; set; }
         public double EindKm { get; set; }
