@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Domain.Entities
 {
-    class Chauffeur : IdentityUser
+    public class Chauffeur : IdentityUser
     {
         public override string Id { get; set; }
         public override string UserName { get; set; }

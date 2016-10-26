@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    class Vrachtwagen
+    public class Vrachtwagen
     {
         [Key]
         public string NummerPlaat { get; set; }
