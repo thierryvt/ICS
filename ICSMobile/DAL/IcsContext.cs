@@ -2,11 +2,27 @@
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.Validation;
+using Shared.Entities;
 
 namespace DAL
 {
-    public class IcsContext : IdentityDbContext<Shared.Entities.Chauffeur>
+    [DbConfigurationType(typeof(ICSConfiguration))]
+    public class IcsContext : IdentityDbContext<Chauffeur>
     {
+        public IcsContext() : base("IcsContext")
+        {
+            Database.SetInitializer(new ICSInitializer());
+        }
+        public override IDbSet<Chauffeur> Users { get; set; }
+        public DbSet<Opdracht> Opdrachten { get; set; }
+        public DbSet<Rit> Ritten { get; set; }
+        public DbSet<Tankbeurt> Tankbeurten { get; set; }
+        public DbSet<Vrachtwagen> Vrachtwagens { get; set; }
 
-    }
+        
+        public static IcsContext Create()
+        {
+            return new IcsContext();
+        }
+    }   
 }

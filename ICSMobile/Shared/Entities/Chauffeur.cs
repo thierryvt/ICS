@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Domain.Entities
+namespace Shared.Entities
 {
     public class Chauffeur : IdentityUser
     {
