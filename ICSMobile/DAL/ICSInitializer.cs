@@ -11,6 +11,7 @@ namespace DAL
 {
     public class ICSInitializer : DropCreateDatabaseIfModelChanges<IcsContext>
     {
+        // Bij runnen van project wordt onderstaande gemaakt
         protected override void Seed(IcsContext context)
         {
             var hasher = new PasswordHasher();

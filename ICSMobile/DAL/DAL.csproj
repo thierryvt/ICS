@@ -68,7 +68,25 @@
     <Compile Include="ICSConfiguration.cs" />
     <Compile Include="IcsContext.cs" />
     <Compile Include="ICSInitializer.cs" />
+    <Compile Include="Migrations\201610282013487_initial.cs" />
+    <Compile Include="Migrations\201610282013487_initial.Designer.cs">
+      <DependentUpon>201610282013487_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610282023551_two.cs" />
+    <Compile Include="Migrations\201610282023551_two.Designer.cs">
+      <DependentUpon>201610282023551_two.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Contracts\IChauffeurRepository.cs" />
+    <Compile Include="Repositories\Contracts\IOpdrachtRepository.cs" />
+    <Compile Include="Repositories\Contracts\ITankBeurtRepository.cs" />
+    <Compile Include="Repositories\Contracts\IVrachtwagenRepository.cs" />
+    <Compile Include="Repositories\Contracts\IRitRepository.cs" />
+    <Compile Include="Repositories\EF\ChauffeurRepository.cs" />
+    <Compile Include="Repositories\EF\OpdrachtRepository.cs" />
+    <Compile Include="Repositories\EF\RitRepository.cs" />
+    <Compile Include="Repositories\EF\VrachtwagenRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -79,6 +97,14 @@
       <Project>{e523cdd8-0b4e-4635-add2-4a4d7e47f818}</Project>
       <Name>Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610282013487_initial.resx">
+      <DependentUpon>201610282013487_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610282023551_two.resx">
+      <DependentUpon>201610282023551_two.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,6 +11,7 @@ namespace Shared.Entities
         public int OpdrachtID { get; set; }
         public string Status { get; set; }
         public string Bijlage { get; set; }
+        public DateTime Datum { get; set; }
 
         // Foreign keys
         public string ChauffeurID { get; set; }
