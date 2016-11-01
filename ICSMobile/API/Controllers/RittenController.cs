@@ -2,10 +2,13 @@
 using BL.Managers;
 using System.Web.Http.Description;
 using Shared.Entities;
+using System.Threading.Tasks;
+using System.Collections.Specialized;
 
 namespace API.Controllers
 {
     [RoutePrefix("api/ritten")]
+    [AllowAnonymous]
     public class RittenController : ApiController
     {
         //private ApplicationDbContext db = new ApplicationDbContext();
@@ -14,26 +17,32 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("all")]
-        [AllowAnonymous]
         public IHttpActionResult Get()
         {
             return Ok(_ritManager.AlleRitten());
         }
 
         [HttpGet]
-        [Route("byId")]        
+        [Route("byId")]
         [ResponseType(typeof(Rit))]
-        [AllowAnonymous]
         public IHttpActionResult GetByid([FromUri]int id)
         {
             var rit = _ritManager.FindRit(id);
-            if(rit == null)
+            if (rit == null)
             {
-                return NotFound();
+                return Ok();
             } else
             {
                 return Ok(rit);
             }
+        }
+
+        [HttpPost]
+        [Route("Create")]
+        public async Task<IHttpActionResult> CreateRit([FromBody]NameValueCollection rit)
+        {
+            var res = await Request.Content.ReadAsStringAsync();
+            return Ok();
         }
 
         // GET: api/Ritten
