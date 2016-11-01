@@ -17,7 +17,9 @@ namespace DAL
             #region Chaffuer
             var Chauffeurs = new List<Chauffeur>
             {
-                new Chauffeur {FirstName="Patrick",LastName="Van Tillo", Id = Guid.NewGuid().ToString(), UserName="patrick"}
+                new Chauffeur {FirstName="Patrick",LastName="Van Tillo", Id = Guid.NewGuid().ToString(), UserName="patrick"},
+                new Chauffeur {FirstName="Dimitri",LastName="Van Tillo", Id = Guid.NewGuid().ToString(), UserName="dimitri"},
+                new Chauffeur {FirstName="Eric",LastName="Van Tillo", Id = Guid.NewGuid().ToString(), UserName="eric"}
             };
 
             Chauffeurs.ForEach(s => context.Users.Add(s));

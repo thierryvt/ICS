@@ -37,6 +37,14 @@ namespace DAL.Repositories.EF
             return _ctx.Ritten.Find(id);
         }
 
+        public Rit FindMetOpdrachtChauffeur(int id)
+        {
+            return _ctx.Ritten
+                .Include("opdracht")
+                .Include("opdracht._Chauffeur")
+                .SingleOrDefault(x => (x.RitID == id));
+        }
+
         public void Update(Rit r)
         {
             _ctx.Entry(_ctx.Ritten.Find(r.RitID)).CurrentValues.SetValues(r);

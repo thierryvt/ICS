@@ -10,7 +10,6 @@ namespace BL.Managers
         private readonly IRitRepository _RitRepository = new RitRepository();
 
         // rit aanmaken
-
         public void CreateRit(Rit rit)
         {
             _RitRepository.Create(rit);
@@ -28,6 +27,11 @@ namespace BL.Managers
             return _RitRepository.Find(id);
         }
 
+        // rit met opdracht en chauffeur gegevens ophalen
+        public Rit FindRitMetChauffeur(int id)
+        {
+            return _RitRepository.FindMetOpdrachtChauffeur(id);
+        }
         // rit updaten
         public void UpdateRit(Rit rit)
         {

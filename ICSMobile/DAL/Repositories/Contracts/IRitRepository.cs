@@ -8,6 +8,7 @@ namespace DAL.Repositories.Contracts
     public interface IRitRepository
     {
         Rit Find(int id);
+        Rit FindMetOpdrachtChauffeur(int id);
         IEnumerable<Rit> All();
         IEnumerable<Rit> All(DateTime time);
         void Create(Rit r);

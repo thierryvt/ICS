@@ -16,7 +16,7 @@ namespace ICSFrontEndPt2.Controllers
 
         public ActionResult Details(int id)
         {
-            return View(_ritmanager.FindRit(id));
+            return View(_ritmanager.FindRitMetChauffeur(id));
         }
 
         public ActionResult Create()
