@@ -44,7 +44,7 @@ namespace DAL.Repositories.EF
             return _ctx.Opdrachten.Find(id);
         }
 
-        public void Update(int id, Opdracht o)
+        public void Update(Opdracht o)
         {
             _ctx.Entry(_ctx.Opdrachten.Find(id)).CurrentValues.SetValues(o);
             _ctx.SaveChanges();

@@ -12,7 +12,7 @@ namespace DAL.Repositories.Contracts
         IEnumerable<Opdracht> All(DateTime time);
         Opdracht AlleOpdrachtRitten(int id);
         void Create(Opdracht o);
-        void Update(int id, Opdracht o);
+        void Update(Opdracht o);
         void Delete(int id);
     }
 }

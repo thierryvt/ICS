@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Shared.Entities;
 using DAL.Repositories.Contracts;
 using DAL.Repositories.EF;
@@ -43,6 +39,9 @@ namespace BL.Managers
         {
             _RitRepository.Delete(id);
         }
+
+        // alle ritten voor 1 bepaalde opdracht
+
 
     }
 }

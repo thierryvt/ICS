@@ -1,7 +1,5 @@
-﻿using System.Web;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Shared.Entities;
 using System.Collections.Generic;
 using System;

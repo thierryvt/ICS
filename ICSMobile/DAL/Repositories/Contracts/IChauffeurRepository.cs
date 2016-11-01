@@ -1,5 +1,4 @@
-﻿using System;
-using Shared.Entities;
+﻿using Shared.Entities;
 using System.Collections.Generic;
 
 
