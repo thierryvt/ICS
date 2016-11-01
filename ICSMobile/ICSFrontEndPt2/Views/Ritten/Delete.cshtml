@@ -1,0 +1,80 @@
+﻿@model Shared.Entities.Rit
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Rit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NummerPlaat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NummerPlaat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginKm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeginKm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EindKm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EindKm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginTijd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeginTijd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EindTijd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EindTijd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpdrachtID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpdrachtID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

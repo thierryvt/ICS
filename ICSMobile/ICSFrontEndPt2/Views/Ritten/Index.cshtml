@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Shared.Entities.Rit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NummerPlaat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeginKm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EindKm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeginTijd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EindTijd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpdrachtID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NummerPlaat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeginKm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EindKm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeginTijd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EindTijd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpdrachtID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RitID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RitID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RitID })
+        </td>
+    </tr>
+}
+
+</table>

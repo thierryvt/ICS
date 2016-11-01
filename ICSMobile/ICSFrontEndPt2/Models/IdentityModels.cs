@@ -29,5 +29,7 @@ namespace ICSFrontEndPt2.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Shared.Entities.Rit> Rits { get; set; }
     }
 }
