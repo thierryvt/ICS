@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Managers\OpdrachtManager.cs" />
     <Compile Include="Managers\RitManager.cs" />
+    <Compile Include="Managers\TankbeurtManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

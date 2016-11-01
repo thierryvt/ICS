@@ -35,7 +35,7 @@ namespace ICSFrontEndPt2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OpdrachtID,Status,Bijlage,Datum,ChauffeurID")] Opdracht opdracht)
+        public ActionResult Create([Bind(Include = "Naam,OpdrachtID,Status,Bijlage,Datum,ChauffeurID")] Opdracht opdracht)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +59,7 @@ namespace ICSFrontEndPt2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OpdrachtID,Status,Bijlage,Datum,ChauffeurID")] Opdracht opdracht)
+        public ActionResult Edit([Bind(Include = "Naam,OpdrachtID,Status,Bijlage,Datum,ChauffeurID")] Opdracht opdracht)
         {
             if (ModelState.IsValid)
             {
