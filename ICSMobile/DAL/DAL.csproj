@@ -86,6 +86,7 @@
     <Compile Include="Repositories\EF\ChauffeurRepository.cs" />
     <Compile Include="Repositories\EF\OpdrachtRepository.cs" />
     <Compile Include="Repositories\EF\RitRepository.cs" />
+    <Compile Include="Repositories\EF\TankbeurtRepository.cs" />
     <Compile Include="Repositories\EF\VrachtwagenRepository.cs" />
   </ItemGroup>
   <ItemGroup>

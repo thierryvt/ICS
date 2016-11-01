@@ -11,7 +11,7 @@ namespace DAL.Repositories.Contracts
         IEnumerable<Tankbeurt> All();
         IEnumerable<Tankbeurt> All(DateTime time);
         void Create(Tankbeurt t);
-        void Update(int id, Tankbeurt t);
+        void Update(Tankbeurt t);
         void Delete(int id);
     }
 }

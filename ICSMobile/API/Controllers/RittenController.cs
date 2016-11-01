@@ -1,5 +1,7 @@
 ﻿using System.Web.Http;
 using BL.Managers;
+using System.Web.Http.Description;
+using Shared.Entities;
 
 namespace API.Controllers
 {

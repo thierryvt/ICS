@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Shared.Entities.Tankbeurt>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Liter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartKm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EindKm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NummerPlaat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Liter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartKm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EindKm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NummerPlaat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TankbeurtID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TankbeurtID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TankbeurtID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -181,6 +181,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OpdrachtenController.cs" />
     <Compile Include="Controllers\RittenController.cs" />
+    <Compile Include="Controllers\TankbeurtenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,6 +203,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\home.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -258,6 +260,11 @@
     <Content Include="Views\Opdrachten\Details.cshtml" />
     <Content Include="Views\Opdrachten\Edit.cshtml" />
     <Content Include="Views\Opdrachten\Index.cshtml" />
+    <Content Include="Views\Tankbeurten\Create.cshtml" />
+    <Content Include="Views\Tankbeurten\Delete.cshtml" />
+    <Content Include="Views\Tankbeurten\Details.cshtml" />
+    <Content Include="Views\Tankbeurten\Edit.cshtml" />
+    <Content Include="Views\Tankbeurten\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
