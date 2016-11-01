@@ -11,7 +11,7 @@ namespace DAL
     {
         public IcsContext() : base("IcsContext")
         {
-            Database.SetInitializer(new ICSInitializer());
+            Database.SetInitializer(new ICSInitializer());            
         }
         public override IDbSet<Chauffeur> Users { get; set; }
         public DbSet<Opdracht> Opdrachten { get; set; }

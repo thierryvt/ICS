@@ -14,6 +14,7 @@ using BL.Managers;
 
 namespace API.Controllers
 {
+    [RoutePrefix("api/ritten")]
     public class RittenController : ApiController
     {
         //private ApplicationDbContext db = new ApplicationDbContext();
@@ -21,11 +22,27 @@ namespace API.Controllers
 
 
         [HttpGet]
-        [Route("")]
+        [Route("all")]
         [AllowAnonymous]
         public IHttpActionResult Get()
         {
             return Ok(_ritManager.AlleRitten());
+        }
+
+        [HttpGet]
+        [Route("byId")]        
+        [ResponseType(typeof(Rit))]
+        [AllowAnonymous]
+        public IHttpActionResult GetByid([FromUri]int id)
+        {
+            var rit = _ritManager.FindRit(id);
+            if(rit == null)
+            {
+                return NotFound();
+            } else
+            {
+                return Ok(rit);
+            }
         }
 
         // GET: api/Ritten
