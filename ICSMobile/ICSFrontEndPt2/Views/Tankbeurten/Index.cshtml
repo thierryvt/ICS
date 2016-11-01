@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.NummerPlaat)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Liter)
         </th>
         <th>
@@ -21,13 +24,16 @@
             @Html.DisplayNameFor(model => model.EindKm)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NummerPlaat)
+            @Html.DisplayNameFor(model => model.Datum)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NummerPlaat)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Liter)
         </td>
@@ -38,8 +44,9 @@
             @Html.DisplayFor(modelItem => item.EindKm)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NummerPlaat)
+            @Html.DisplayFor(modelItem => item.Datum)
         </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TankbeurtID }) |
             @Html.ActionLink("Details", "Details", new { id=item.TankbeurtID }) |

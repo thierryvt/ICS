@@ -1,11 +1,8 @@
 ﻿using DAL.Repositories.Contracts;
 using DAL.Repositories.EF;
 using Shared.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BL.Managers
 {

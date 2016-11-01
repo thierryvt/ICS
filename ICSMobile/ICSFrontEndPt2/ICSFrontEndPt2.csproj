@@ -182,6 +182,7 @@
     <Compile Include="Controllers\OpdrachtenController.cs" />
     <Compile Include="Controllers\RittenController.cs" />
     <Compile Include="Controllers\TankbeurtenController.cs" />
+    <Compile Include="Controllers\VrachtwagensController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -265,6 +266,11 @@
     <Content Include="Views\Tankbeurten\Details.cshtml" />
     <Content Include="Views\Tankbeurten\Edit.cshtml" />
     <Content Include="Views\Tankbeurten\Index.cshtml" />
+    <Content Include="Views\Vrachtwagens\Create.cshtml" />
+    <Content Include="Views\Vrachtwagens\Delete.cshtml" />
+    <Content Include="Views\Vrachtwagens\Details.cshtml" />
+    <Content Include="Views\Vrachtwagens\Edit.cshtml" />
+    <Content Include="Views\Vrachtwagens\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

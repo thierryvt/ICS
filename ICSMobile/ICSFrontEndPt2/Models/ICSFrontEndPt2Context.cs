@@ -22,5 +22,7 @@ namespace ICSFrontEndPt2.Models
         public System.Data.Entity.DbSet<Shared.Entities.Opdracht> Opdrachts { get; set; }
 
         public System.Data.Entity.DbSet<Shared.Entities.Tankbeurt> Tankbeurts { get; set; }
+
+        public System.Data.Entity.DbSet<Shared.Entities.Vrachtwagen> Vrachtwagens { get; set; }
     }
 }

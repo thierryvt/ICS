@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DAL.Repositories.EF
 {
-    class VrachtwagenRepository : IVrachtwagenRepository
+    public class VrachtwagenRepository : IVrachtwagenRepository
     {
 
         private readonly IcsContext _ctx = new IcsContext();
@@ -27,14 +27,14 @@ namespace DAL.Repositories.EF
             _ctx.SaveChanges();
         }
 
-        public Vrachtwagen Find(int id)
+        public Vrachtwagen Find(string id)
         {
             return _ctx.Vrachtwagens.Find(id);
         }
 
-        public void Update(int id, Vrachtwagen v)
+        public void Update(Vrachtwagen v)
         {
-            _ctx.Entry(_ctx.Vrachtwagens.Find(id)).CurrentValues.SetValues(v);
+            _ctx.Entry(_ctx.Vrachtwagens.Find(v.NummerPlaat)).CurrentValues.SetValues(v);
             _ctx.SaveChanges();
         }
     }
