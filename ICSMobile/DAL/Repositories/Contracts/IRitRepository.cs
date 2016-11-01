@@ -11,7 +11,7 @@ namespace DAL.Repositories.Contracts
         IEnumerable<Rit> All();
         IEnumerable<Rit> All(DateTime time);
         void Create(Rit r);
-        void Update(int id, Rit r);
+        void Update(Rit r);
         void Delete(int id);
     }
 }

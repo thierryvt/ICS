@@ -16,5 +16,9 @@ namespace Shared.Entities
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string PostalCode { get; set; }
+
+
+        // Navigation Properties 
+        public ICollection<Opdracht> Opdrachten { get; set; }
     }
 }

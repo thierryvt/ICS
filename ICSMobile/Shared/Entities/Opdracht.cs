@@ -17,5 +17,6 @@ namespace Shared.Entities
         public string ChauffeurID { get; set; }
 
         // Navigation Properties 
+        public ICollection<Rit> Ritten { get; set; }
     }
 }

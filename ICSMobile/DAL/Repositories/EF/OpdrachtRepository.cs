@@ -20,6 +20,13 @@ namespace DAL.Repositories.EF
             return _ctx.Opdrachten.Where(x => (x.Datum >= time)).AsEnumerable();
         }
 
+        public Opdracht AlleOpdrachtRitten(int id)
+        {
+            return _ctx.Opdrachten
+                .Include("Ritten")
+                .SingleOrDefault(x => (x.OpdrachtID == id));
+        }
+
         public void Create(Opdracht o)
         {
             _ctx.Opdrachten.Add(o);

@@ -37,9 +37,9 @@ namespace DAL.Repositories.EF
             return _ctx.Ritten.Find(id);
         }
 
-        public void Update(int id, Rit r)
+        public void Update(Rit r)
         {
-            _ctx.Entry(_ctx.Ritten.Find(id)).CurrentValues.SetValues(r);
+            _ctx.Entry(_ctx.Ritten.Find(r.RitID)).CurrentValues.SetValues(r);
             _ctx.SaveChanges();
         }
     }

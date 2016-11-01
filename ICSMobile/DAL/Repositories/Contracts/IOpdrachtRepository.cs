@@ -10,6 +10,7 @@ namespace DAL.Repositories.Contracts
         Opdracht Find(int id);
         IEnumerable<Opdracht> All();
         IEnumerable<Opdracht> All(DateTime time);
+        Opdracht AlleOpdrachtRitten(int id);
         void Create(Opdracht o);
         void Update(int id, Opdracht o);
         void Delete(int id);

@@ -19,5 +19,8 @@ namespace Shared.Entities
         //Foreign keys
 
         public int OpdrachtID { get; set; }
+
+        //// navigational properties
+        //public Opdracht opdracht { get; set; }
     }
 }

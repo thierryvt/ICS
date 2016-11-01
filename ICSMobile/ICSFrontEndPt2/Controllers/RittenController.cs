@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using ICSFrontEndPt2.Models;
 using Shared.Entities;
 using BL.Managers;
 
@@ -18,119 +11,71 @@ namespace ICSFrontEndPt2.Controllers
 
         public ActionResult Index()
         {
-            return View(_ritmanager.AlleRitten());
+            return View(_ritmanager.AlleRitten().ToList());
         }
 
-        // private ApplicationDbContext db = new ApplicationDbContext();
+        public ActionResult Details(int id)
+        {
+            return View(_ritmanager.FindRit(id));
+        }
 
-        // GET: Ritten
-        //public ActionResult Index()
-        //{
-        //    return View(db.Rits.ToList());
-        //}
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-        //// GET: Ritten/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Rit rit = db.Rits.Find(id);
-        //    if (rit == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(rit);
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "RitID,NummerPlaat,BeginKm,EindKm,Datum,BeginTijd,EindTijd,OpdrachtID")] Rit rit)
+        {
+            if (ModelState.IsValid)
+            {
+                _ritmanager.CreateRit(rit);
+                return RedirectToAction("Details", new { id = rit.RitID });
+            }
 
-        //// GET: Ritten/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
+            return View(rit);
+        }
 
-        //// POST: Ritten/Create
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "RitID,NummerPlaat,BeginKm,EindKm,Datum,BeginTijd,EindTijd,OpdrachtID")] Rit rit)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Rits.Add(rit);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
+        public ActionResult Edit(int id)
+        {
+            Rit rit = _ritmanager.FindRit(id);
+            if (rit == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rit);
+        }
 
-        //    return View(rit);
-        //}
 
-        //// GET: Ritten/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Rit rit = db.Rits.Find(id);
-        //    if (rit == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(rit);
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "RitID,NummerPlaat,BeginKm,EindKm,Datum,BeginTijd,EindTijd,OpdrachtID")]Rit rit)
+        {
+            if (ModelState.IsValid)
+            {
+                _ritmanager.UpdateRit(rit);
+                return RedirectToAction("Index");
+            }
+            return View(rit);
+        }
 
-        //// POST: Ritten/Edit/5
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "RitID,NummerPlaat,BeginKm,EindKm,Datum,BeginTijd,EindTijd,OpdrachtID")] Rit rit)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(rit).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(rit);
-        //}
+        public ActionResult Delete(int id)
+        {
+            Rit rit = _ritmanager.FindRit(id);
+            if (rit == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rit);
+        }
 
-        //// GET: Ritten/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Rit rit = db.Rits.Find(id);
-        //    if (rit == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(rit);
-        //}
-
-        //// POST: Ritten/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Rit rit = db.Rits.Find(id);
-        //    db.Rits.Remove(rit);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        db.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            _ritmanager.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }
