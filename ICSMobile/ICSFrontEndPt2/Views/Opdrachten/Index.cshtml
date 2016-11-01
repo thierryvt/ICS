@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Shared.Entities.Opdracht>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Naam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bijlage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._Chauffeur.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._Chauffeur.LastName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bijlage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._Chauffeur.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._Chauffeur.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OpdrachtID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OpdrachtID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OpdrachtID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -2,7 +2,6 @@
 using DAL.Repositories.Contracts;
 using Shared.Entities;
 using System.Linq;
-using System;
 
 namespace DAL.Repositories.EF
 {

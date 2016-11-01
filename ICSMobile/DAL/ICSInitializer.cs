@@ -1,7 +1,5 @@
-﻿using System.Web;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Shared.Entities;
 using System.Collections.Generic;
 using System;
@@ -50,8 +48,8 @@ namespace DAL
 
             var Opdrachten = new List <Opdracht>
             {
-                new Opdracht { ChauffeurID = Chauffeurs.ElementAt(0).Id, OpdrachtID=1},
-                new Opdracht { ChauffeurID = Chauffeurs.ElementAt(0).Id, OpdrachtID=2},
+                new Opdracht { Naam = "Vermeylen Referentienummer 1", ChauffeurID = Chauffeurs.ElementAt(0).Id, OpdrachtID=1},
+                new Opdracht { Naam = "Amazon Referentienummer XYZFDF", ChauffeurID = Chauffeurs.ElementAt(0).Id, OpdrachtID=2},
 
             };
             Opdrachten.ForEach(s => context.Opdrachten.Add(s));
