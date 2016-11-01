@@ -20,10 +20,11 @@ namespace DAL.Repositories.EF
             return _ctx.Opdrachten.Where(x => (x.Datum >= time)).AsEnumerable();
         }
 
-        public Opdracht AlleOpdrachtRitten(int id)
+        public Opdracht OpdrachtAlleRitten(int id)
         {
             return _ctx.Opdrachten
                 .Include("Ritten")
+                .Include("_Chauffeur")
                 .SingleOrDefault(x => (x.OpdrachtID == id));
         }
 
@@ -46,8 +47,15 @@ namespace DAL.Repositories.EF
 
         public void Update(Opdracht o)
         {
-            _ctx.Entry(_ctx.Opdrachten.Find(id)).CurrentValues.SetValues(o);
+            _ctx.Entry(_ctx.Opdrachten.Find(o.OpdrachtID)).CurrentValues.SetValues(o);
             _ctx.SaveChanges();
+        }
+
+        public IEnumerable<Opdracht> AlleOpdrachtenMetChauffeur()
+        {
+            return _ctx.Opdrachten
+                .Include("_Chauffeur")
+                .AsEnumerable();
         }
     }
 }

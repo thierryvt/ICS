@@ -179,11 +179,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OpdrachtenController.cs" />
     <Compile Include="Controllers\RittenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ICSFrontEndPt2Context.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -251,6 +253,11 @@
     <Content Include="Views\Ritten\Details.cshtml" />
     <Content Include="Views\Ritten\Edit.cshtml" />
     <Content Include="Views\Ritten\Index.cshtml" />
+    <Content Include="Views\Opdrachten\Create.cshtml" />
+    <Content Include="Views\Opdrachten\Delete.cshtml" />
+    <Content Include="Views\Opdrachten\Details.cshtml" />
+    <Content Include="Views\Opdrachten\Edit.cshtml" />
+    <Content Include="Views\Opdrachten\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

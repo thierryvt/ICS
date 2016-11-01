@@ -6,6 +6,7 @@ namespace Shared.Entities
     public class Opdracht
     {
         public int OpdrachtID { get; set; }
+        public string Naam { get; set; }
         public string Status { get; set; }
         public string Bijlage { get; set; }
         public DateTime Datum { get; set; }
@@ -15,5 +16,6 @@ namespace Shared.Entities
 
         // Navigation Properties 
         public ICollection<Rit> Ritten { get; set; }
+        public Chauffeur _Chauffeur { get; set; }
     }
 }
