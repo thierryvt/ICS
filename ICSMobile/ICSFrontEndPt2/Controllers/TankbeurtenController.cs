@@ -16,6 +16,7 @@ namespace ICSFrontEndPt2.Controllers
     {
 
         private readonly TankbeurtManager _tankbeurtManager = new TankbeurtManager();
+        private readonly VrachtwagenManager _vrachtwagenManager = new VrachtwagenManager();
 
         public ActionResult Index()
         {
@@ -29,6 +30,7 @@ namespace ICSFrontEndPt2.Controllers
 
         public ActionResult Create()
         {
+            PopulateVrachtwagenDropDownList();
             return View();
         }
 
@@ -41,7 +43,7 @@ namespace ICSFrontEndPt2.Controllers
                 _tankbeurtManager.CreateTankbeurt(tankbeurt);
                 return RedirectToAction("Details", new { id = tankbeurt.TankbeurtID });
             }
-
+            PopulateVrachtwagenDropDownList(tankbeurt.NummerPlaat);
             return View(tankbeurt);
         }
 
@@ -85,6 +87,12 @@ namespace ICSFrontEndPt2.Controllers
             _tankbeurtManager.Delete(id);
             return RedirectToAction("Index");
         }
-       
+
+
+        private void PopulateVrachtwagenDropDownList(object selectVrachtwagen = null)
+        {
+            ViewBag.NummerPlaat = new SelectList(_vrachtwagenManager.AlleVrachtwagenen(), "NummerPlaat", "NummerPlaat", selectVrachtwagen);
+        }
+
     }
 }

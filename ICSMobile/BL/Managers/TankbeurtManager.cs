@@ -10,10 +10,11 @@ namespace BL.Managers
     {
         private readonly ITankBeurtRepository _TankbeurtRepository = new TankbeurtRepository();
 
-        // tankbeurt aanmaken
+        // tankbeurt aanmaken en gemiddelde berekenen
 
         public void CreateTankbeurt(Tankbeurt tankbeurt)
         {
+            tankbeurt.Verbruik = (tankbeurt.Liter / (tankbeurt.EindKm - tankbeurt.StartKm))*100;
             _TankbeurtRepository.Create(tankbeurt);
         }
 
