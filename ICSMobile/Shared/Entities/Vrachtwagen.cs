@@ -11,6 +11,5 @@ namespace Shared.Entities
         public string Type { get; set; }
         public double TotaalKM { get; set; }
         public DateTime DatumInDienst { get; set; }
-
     }
 }

@@ -6,6 +6,7 @@
         public double Liter { get; set; }
         public double StartKm { get; set; }
         public double EindKm { get; set; }
+        public double Verbruik { get; set; }
         public System.DateTime Datum { get; set; }
 
         // foreign key
