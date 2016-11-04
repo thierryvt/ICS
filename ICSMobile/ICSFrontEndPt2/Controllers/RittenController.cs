@@ -8,6 +8,8 @@ namespace ICSFrontEndPt2.Controllers
     public class RittenController : Controller
     {
         private readonly RitManager _ritmanager = new RitManager();
+        private readonly VrachtwagenManager _vrachtwagenManager = new VrachtwagenManager();
+        private readonly OpdrachtManager _opdrachtManager = new OpdrachtManager();
 
         public ActionResult Index()
         {
@@ -21,6 +23,8 @@ namespace ICSFrontEndPt2.Controllers
 
         public ActionResult Create()
         {
+            PopulateVrachtwagenDropDownList();
+            PopulateOpdrachtDropDownList();
             return View();
         }
 
@@ -33,7 +37,8 @@ namespace ICSFrontEndPt2.Controllers
                 _ritmanager.CreateRit(rit);
                 return RedirectToAction("Details", new { id = rit.RitID });
             }
-
+            PopulateOpdrachtDropDownList(rit.OpdrachtID);
+            PopulateVrachtwagenDropDownList(rit.NummerPlaat);
             return View(rit);
         }
 
@@ -76,6 +81,16 @@ namespace ICSFrontEndPt2.Controllers
         {
             _ritmanager.Delete(id);
             return RedirectToAction("Index");
+        }
+
+        private void PopulateVrachtwagenDropDownList(object selectVrachtwagen = null)
+        {
+            ViewBag.NummerPlaat = new SelectList(_vrachtwagenManager.AlleVrachtwagenen(), "NummerPlaat", "NummerPlaat", selectVrachtwagen);
+        }
+
+        private void PopulateOpdrachtDropDownList(object selectOpdracht = null)
+        {
+            ViewBag.OpdrachtID = new SelectList(_opdrachtManager.AlleOpdrachtten(), "OpdrachtID", "Naam", selectOpdracht);
         }
     }
 }
