@@ -21,6 +21,13 @@ namespace DAL.Repositories.EF
             return _ctx.Tankbeurten.Where(x => (x.Datum >= time)).AsEnumerable();
         }
 
+        public IEnumerable<Tankbeurt> AlleVoorVrachtwagen(string nummerplaat)
+        {
+            return _ctx.Tankbeurten
+                .Where(x => (x.NummerPlaat == nummerplaat))
+                .AsEnumerable();
+        }
+
         public void Create(Tankbeurt t)
         {
             _ctx.Tankbeurten.Add(t);

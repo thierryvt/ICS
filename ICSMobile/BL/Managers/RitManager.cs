@@ -3,6 +3,7 @@ using Shared.Entities;
 using DAL.Repositories.Contracts;
 using DAL.Repositories.EF;
 using System.Linq;
+using System;
 
 namespace BL.Managers
 {
@@ -17,10 +18,23 @@ namespace BL.Managers
         {
             Opdracht o = _OpdrachtRepository.FindMetVrachtwagen(rit.OpdrachtID);
             // Zoek de laatste rit voor de gekozen vrachtwatgen en gebruik daar de eindstand van als nieuwe beginstand
-            rit.BeginKm = _RitRepository.FindLast(rit.NummerPlaat).ToList().LastOrDefault().EindKm;
+            try
+            {
+                rit.BeginKm = _RitRepository.FindLast(rit.NummerPlaat).ToList().LastOrDefault().EindKm;
+            }
+            catch (NullReferenceException e)
+            {
+                rit.BeginKm = 0;
+            }
+            catch (Exception e)
+            {
+                // een foutmelding weergeven op het scherm?
+                Console.WriteLine("{0} Second exception caught.", e);
+            }
+
 
             // controleer het totaal km van de vrachtwagen. Indien kleiner dan eindkm van rit, verhoog het totaal km van de vrachtwagen
-            if(rit.EindKm > o._Vrachtwagen.TotaalKM)
+            if (rit.EindKm > o._Vrachtwagen.TotaalKM)
             {
                 Vrachtwagen v = _VrachtwagenRepository.Find(o._Vrachtwagen.NummerPlaat);
                 v.TotaalKM = rit.EindKm;

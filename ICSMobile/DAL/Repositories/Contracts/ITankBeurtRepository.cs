@@ -10,6 +10,7 @@ namespace DAL.Repositories.Contracts
         Tankbeurt Find(int id);
         IEnumerable<Tankbeurt> All();
         IEnumerable<Tankbeurt> All(DateTime time);
+        IEnumerable<Tankbeurt> AlleVoorVrachtwagen(string nummerplaat);
         void Create(Tankbeurt t);
         void Update(Tankbeurt t);
         void Delete(int id);
