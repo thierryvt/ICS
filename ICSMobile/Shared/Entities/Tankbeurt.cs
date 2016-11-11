@@ -11,5 +11,6 @@
 
         // foreign key
         public string NummerPlaat { get; set; }
+        public string ChauffeurID { get; set; }
     }
 }

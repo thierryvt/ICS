@@ -16,7 +16,7 @@ namespace Shared.Entities
 
         public int OpdrachtID { get; set; }
 
-        //// navigational properties
+        // navigational properties
         public Opdracht opdracht { get; set; }
     }
 }

@@ -45,6 +45,13 @@ namespace DAL.Repositories.EF
             return _ctx.Opdrachten.Find(id);
         }
 
+        public Opdracht FindMetVrachtwagen(int id)
+        {
+            return _ctx.Opdrachten
+                .Include("_Vrachtwagen")
+                .SingleOrDefault(x => (x.OpdrachtID == id));
+        }
+
         public void Update(Opdracht o)
         {
             _ctx.Entry(_ctx.Opdrachten.Find(o.OpdrachtID)).CurrentValues.SetValues(o);
@@ -57,5 +64,22 @@ namespace DAL.Repositories.EF
                 .Include("_Chauffeur")
                 .AsEnumerable();
         }
+
+        public IEnumerable<Opdracht> AlleLopendeMetChauffeur()
+        {
+            return _ctx.Opdrachten
+                .Include("_Chauffeur")
+                .Where(x => (x.Afgehandeld == false))
+                .AsEnumerable();
+        }
+
+        public IEnumerable<Opdracht> AlleAfgelopen()
+        {
+            return _ctx.Opdrachten
+                .Where(x => (x.Afgehandeld == true))
+                .AsEnumerable();
+        }
+
+
     }
 }

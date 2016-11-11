@@ -10,12 +10,15 @@ namespace Shared.Entities
         public string Status { get; set; }
         public string Bijlage { get; set; }
         public DateTime Datum { get; set; }
+        public bool Afgehandeld { get; set; }
 
         // Foreign keys
         public string ChauffeurID { get; set; }
+        public string NummerPlaat { get; set; }
 
         // Navigation Properties 
         public ICollection<Rit> Ritten { get; set; }
         public Chauffeur _Chauffeur { get; set; }
+        public Vrachtwagen _Vrachtwagen { get; set; }
     }
 }

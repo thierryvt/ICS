@@ -271,6 +271,8 @@
     <Content Include="Views\Vrachtwagens\Details.cshtml" />
     <Content Include="Views\Vrachtwagens\Edit.cshtml" />
     <Content Include="Views\Vrachtwagens\Index.cshtml" />
+    <Content Include="Views\Opdrachten\Lopende.cshtml" />
+    <Content Include="Views\Opdrachten\Afgelopen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,7 +17,9 @@ namespace DAL.Repositories.EF
 
         public IEnumerable<Rit> All(DateTime time)
         {
-            return _ctx.Ritten.Where(x => (x.Datum >= time)).AsEnumerable();
+            return _ctx.Ritten
+                .Where(x => (x.Datum >= time))
+                .AsEnumerable();
         }
 
         public void Create(Rit r)
@@ -37,6 +39,14 @@ namespace DAL.Repositories.EF
             return _ctx.Ritten.Find(id);
         }
 
+        // LastOrDefault kan niet omgezet worden naar een leesbare query dus wordt opgelost in de mananger
+        public IEnumerable<Rit> FindLast(string nummerplaat)
+        {
+            return _ctx.Ritten
+                .Where(x => (x.NummerPlaat == nummerplaat))
+                .AsEnumerable();
+        }
+
         public Rit FindMetOpdrachtChauffeur(int id)
         {
             return _ctx.Ritten
@@ -44,6 +54,14 @@ namespace DAL.Repositories.EF
                 .Include("opdracht._Chauffeur")
                 .SingleOrDefault(x => (x.RitID == id));
         }
+
+        //public Rit FindMetOpdrachtVrachtwagen(int id)
+        //{
+        //    return _ctx.Ritten
+        //        .Include("opdracht")
+        //        .Include("opdracht._Vrachtwagen")
+        //        .SingleOrDefault(x => (x.RitID == id));
+        //}
 
         public void Update(Rit r)
         {

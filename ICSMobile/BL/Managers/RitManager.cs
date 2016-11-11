@@ -2,16 +2,30 @@
 using Shared.Entities;
 using DAL.Repositories.Contracts;
 using DAL.Repositories.EF;
+using System.Linq;
 
 namespace BL.Managers
 {
     public class RitManager
     {
         private readonly IRitRepository _RitRepository = new RitRepository();
+        private readonly IOpdrachtRepository _OpdrachtRepository = new OpdrachtRepository();
+        private readonly IVrachtwagenRepository _VrachtwagenRepository = new VrachtwagenRepository();
 
         // rit aanmaken
         public void CreateRit(Rit rit)
         {
+            Opdracht o = _OpdrachtRepository.FindMetVrachtwagen(rit.OpdrachtID);
+            // Zoek de laatste rit voor de gekozen vrachtwatgen en gebruik daar de eindstand van als nieuwe beginstand
+            rit.BeginKm = _RitRepository.FindLast(rit.NummerPlaat).ToList().LastOrDefault().EindKm;
+
+            // controleer het totaal km van de vrachtwagen. Indien kleiner dan eindkm van rit, verhoog het totaal km van de vrachtwagen
+            if(rit.EindKm > o._Vrachtwagen.TotaalKM)
+            {
+                Vrachtwagen v = _VrachtwagenRepository.Find(o._Vrachtwagen.NummerPlaat);
+                v.TotaalKM = rit.EindKm;
+                _VrachtwagenRepository.Update(v);
+            }
             _RitRepository.Create(rit);
         }
 

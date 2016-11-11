@@ -23,6 +23,16 @@ namespace ICSFrontEndPt2.Controllers
             return View(_opdrachtmanager.AlleOpdrachttenMetChauffeur().ToList());
         }
 
+        public ActionResult Lopende()
+        {
+            return View(_opdrachtmanager.AlleLopendeMetChauffeur().ToList());
+        }
+
+        public ActionResult Afgelopen()
+        {
+            return View(_opdrachtmanager.AlleAfgehandeldeOpdrachten().ToList());
+        }
+
         public ActionResult Details(int id)
         {
             return View(_opdrachtmanager.AlleOpdrachtRitten(id));

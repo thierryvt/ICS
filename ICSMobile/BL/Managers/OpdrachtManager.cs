@@ -52,5 +52,16 @@ namespace BL.Managers
             return _OpdrachtRepository.AlleOpdrachtenMetChauffeur();
         }
 
+        // ophalen alle lopende opdrachten incl chauffeur
+        public IEnumerable<Opdracht> AlleLopendeMetChauffeur()
+        {
+            return _OpdrachtRepository.AlleLopendeMetChauffeur();
+        }
+
+        // ophalen alle afgehandelde opdrachten
+        public IEnumerable<Opdracht> AlleAfgehandeldeOpdrachten()
+        {
+            return _OpdrachtRepository.AlleAfgelopen();
+        }
     }
 }
