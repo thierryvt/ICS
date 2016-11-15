@@ -3,6 +3,7 @@ using DAL.Repositories.Contracts;
 using Shared.Entities;
 using System.Data.Entity;
 using System.Linq;
+using System;
 
 namespace DAL.Repositories.EF
 {
@@ -13,6 +14,14 @@ namespace DAL.Repositories.EF
         public Chauffeur Find(string id)
         {
             return _ctx.Users.Find(id);
+        }
+
+        public Chauffeur FindAlleOpdrachtenRitten(string id)
+        {
+            return _ctx.Users
+                .Include("Opdrachten")
+                .Include("Opdrachten.Ritten")
+                .SingleOrDefault(x => (x.Id == id));
         }
 
         public IEnumerable<Chauffeur> GetAllChauffeurs()
