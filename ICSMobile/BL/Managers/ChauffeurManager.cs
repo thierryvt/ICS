@@ -16,6 +16,9 @@ namespace BL.Managers
 {
     public class ChauffeurManager
     {
+        private readonly IChauffeurRepository _ChauffeurRepository = new ChauffeurRepository();
+
+
         // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
         public class ApplicationUserManager : UserManager<Chauffeur>
         {
@@ -89,6 +92,24 @@ namespace BL.Managers
             {
                 return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
             }
+        }
+
+        // alle chauffeurs ophalen
+        public IEnumerable<Chauffeur> AlleChauffeurs()
+        {
+            return _ChauffeurRepository.GetAllChauffeurs();
+        }
+
+        // 1 chauffeur met al zijn opdrachten en bijhorende ritten
+        public Chauffeur AlleChauffeursMetOpdrachtRitten(string id)
+        {
+            return _ChauffeurRepository.FindAlleOpdrachtenRitten(id);
+        }
+
+        // 1 specifieke chauffeur
+        public Chauffeur FindChauffeur(string id)
+        {
+            return _ChauffeurRepository.Find(id);
         }
 
         //public class EmailService : IIdentityMessageService

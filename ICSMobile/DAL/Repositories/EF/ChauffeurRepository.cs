@@ -29,7 +29,7 @@ namespace DAL.Repositories.EF
             return _ctx.Users.Include("Roles").AsEnumerable();
         }
 
-        public void UpdateChauffeur(string id, Shared.Entities.Chauffeur c)
+        public void UpdateChauffeur(string id, Chauffeur c)
         {
             _ctx.Entry(_ctx.Users.Find(id)).CurrentValues.SetValues(c);
             _ctx.SaveChanges();

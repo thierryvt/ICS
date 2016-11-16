@@ -1,0 +1,124 @@
+﻿@model Shared.Entities.Chauffeur
+
+@{
+    ViewBag.Title = "OpdrachtenRitten";
+}
+
+<h2>OpdrachtenRitten</h2>
+
+<div>
+    <h4>Chauffeur</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Opdracht Referentie
+        </th>
+        <th>
+            Opdracht status
+        </th>
+        <th>
+            Nummerplat
+        </th>
+        <th>
+            Begin KM
+        </th>
+        <th>
+           Eind KM
+        </th>
+        <th>
+           Begin Tijd
+        </th>
+        <th>
+            Eind Tijd
+        </th>
+        <th>
+           Rit ID
+        </th>
+    </tr>
+
+    @foreach (var line in Model.Opdrachten)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => line.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => line.Status)
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        foreach (var rit in line.Ritten)
+        {
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    @Html.DisplayFor(modelItem => rit.NummerPlaat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => rit.BeginKm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => rit.EindKm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => rit.BeginTijd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => rit.EindTijd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => rit.RitID)
+                </td>
+            </tr>}
+
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
