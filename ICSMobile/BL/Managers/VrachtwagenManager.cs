@@ -28,6 +28,13 @@ namespace BL.Managers
             return _VrachtwagenRepository.Find(id);
         }
 
+        // 1 specifieke vrachtwagen met tankbeurten
+        public Vrachtwagen FindVrachtwagenTankbeurten(string id)
+        {
+            return _VrachtwagenRepository.FindMetTankbeurt(id);
+        }
+
+
         // vrachtwagen updaten
         public void UpdateVrachtwagen(Vrachtwagen vrachtwagen)
         {

@@ -275,6 +275,7 @@
     <Content Include="Views\Chauffeurs\Index.cshtml" />
     <Content Include="Views\Chauffeurs\OpdrachtenRitten.cshtml" />
     <Content Include="Views\Chauffeurs\Details.cshtml" />
+    <Content Include="Views\Vrachtwagens\Tankbeurten.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

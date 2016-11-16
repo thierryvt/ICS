@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Shared.Entities
@@ -11,5 +12,8 @@ namespace Shared.Entities
         public string Type { get; set; }
         public double TotaalKM { get; set; }
         public DateTime DatumInDienst { get; set; }
+
+        // Navigation Properties 
+        public ICollection<Tankbeurt> Tankbeurten { get; set; }
     }
 }

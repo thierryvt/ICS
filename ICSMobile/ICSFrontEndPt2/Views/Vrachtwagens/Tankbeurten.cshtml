@@ -1,0 +1,93 @@
+﻿@model Shared.Entities.Vrachtwagen
+
+@{
+    ViewBag.Title = "Tankbeurten";
+}
+
+<h2>Tankbeurten</h2>
+
+<div>
+    <h4>Vrachtwagen</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Merk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Merk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotaalKM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotaalKM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumInDienst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumInDienst)
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Begin Km
+        </th>
+        <th>
+            Eind Km
+        </th>
+        <th>
+            Datum
+        </th>
+        <th>
+            Aantal liter
+        </th>
+        <th>
+            Verbruik (liter per 100 km)
+        </th>
+    </tr>
+
+    @foreach (var line in Model.Tankbeurten)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => line.StartKm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => line.EindKm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => line.Datum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => line.Liter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => line.Verbruik)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NummerPlaat }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

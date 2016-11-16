@@ -2,6 +2,7 @@
 using DAL.Repositories.Contracts;
 using Shared.Entities;
 using System.Linq;
+using System;
 
 namespace DAL.Repositories.EF
 {
@@ -30,6 +31,13 @@ namespace DAL.Repositories.EF
         public Vrachtwagen Find(string id)
         {
             return _ctx.Vrachtwagens.Find(id);
+        }
+
+        public Vrachtwagen FindMetTankbeurt(string NrPlaat)
+        {
+            return _ctx.Vrachtwagens
+                .Include("Tankbeurten")
+                .SingleOrDefault(x => (x.NummerPlaat == NrPlaat));
         }
 
         public void Update(Vrachtwagen v)

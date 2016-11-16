@@ -42,9 +42,9 @@ namespace DAL
             #region Tankbeurt
             var Tankbeurten = new List<Tankbeurt>
             {
-                new Tankbeurt {TankbeurtID=1, Liter=500,StartKm=500,EindKm=1500,NummerPlaat="1-GDI-017", ChauffeurID = Chauffeurs.ElementAt(0).Id},
-                new Tankbeurt {TankbeurtID=2, Liter=555,StartKm=1500,EindKm=3500,NummerPlaat="1-GDI-017", ChauffeurID = Chauffeurs.ElementAt(1).Id},
-                new Tankbeurt {TankbeurtID=3, Liter=457,StartKm=3500,EindKm=5000,NummerPlaat="1-GDI-017", ChauffeurID = Chauffeurs.ElementAt(2).Id},
+                new Tankbeurt {TankbeurtID=1, Liter=500,StartKm=500,EindKm=1500,NummerPlaat="1-DEF-017", ChauffeurID = Chauffeurs.ElementAt(0).Id},
+                new Tankbeurt {TankbeurtID=2, Liter=555,StartKm=1500,EindKm=3500,NummerPlaat="1-DEF-017", ChauffeurID = Chauffeurs.ElementAt(1).Id},
+                new Tankbeurt {TankbeurtID=3, Liter=457,StartKm=3500,EindKm=5000,NummerPlaat="1-DEF-017", ChauffeurID = Chauffeurs.ElementAt(2).Id},
                 new Tankbeurt {TankbeurtID=4, Liter=300,StartKm=200,EindKm=1500,NummerPlaat="1-ABC-234", ChauffeurID = Chauffeurs.ElementAt(0).Id}
             };
             Tankbeurten.ForEach(s => context.Tankbeurten.Add(s));
