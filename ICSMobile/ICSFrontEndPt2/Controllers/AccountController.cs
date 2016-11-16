@@ -7,7 +7,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.Owin;
 using BL.Managers;
-using static BL.Managers.ChauffeurManager;
+using static BL.Managers.ApplicationUserManager;
 using ICSFrontEndPt2.Models;
 using Shared.Entities;
 
@@ -16,24 +16,24 @@ namespace ICSFrontEndPt2.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationSignInManager _signInManager;
+        private LoginManager _signInManager;
         private ApplicationUserManager _userManager;
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public AccountController(ApplicationUserManager userManager, LoginManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
         }
 
-        public ApplicationSignInManager SignInManager
+        public LoginManager SignInManager
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return _signInManager ?? HttpContext.GetOwinContext().Get<LoginManager>();
             }
             private set
             {

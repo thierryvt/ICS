@@ -17,9 +17,26 @@ namespace DAL
             #region Chaffuer
             var Chauffeurs = new List<Chauffeur>
             {
-                new Chauffeur {Email = "patrickvantillo@gmail.com",FirstName="Patrick",LastName="Van Tillo", Id = Guid.NewGuid().ToString(), UserName="patrick",PasswordHash = hasher.HashPassword("Azerty1234")},
-                new Chauffeur {Email = "dimitrivantillo@gmail.com",FirstName="Dimitri",LastName="Van Tillo", Id = Guid.NewGuid().ToString(), UserName="dimitri",PasswordHash = hasher.HashPassword("Azerty1234")},
-                new Chauffeur {Email = "ericvantillo@gmail.com",FirstName="Eric",LastName="Van Tillo", Id = Guid.NewGuid().ToString(), UserName="eric",PasswordHash = hasher.HashPassword("Azerty1234")}
+                new Chauffeur {Email = "patrickvantillo@gmail.com",FirstName="Patrick",
+                    LastName ="Van Tillo",
+                    Id = Guid.NewGuid().ToString(),
+                    UserName ="patrick",
+                    PasswordHash = hasher.HashPassword("Azerty1234"),
+                    SecurityStamp = Guid.NewGuid().ToString()},
+
+                new Chauffeur {Email = "dimitrivantillo@gmail.com",FirstName="Dimitri",
+                    LastName ="Van Tillo",
+                    Id = Guid.NewGuid().ToString(),
+                    UserName ="dimitri",
+                    PasswordHash = hasher.HashPassword("Azerty1234"),
+                    SecurityStamp = Guid.NewGuid().ToString()},
+
+                new Chauffeur {Email = "ericvantillo@gmail.com",FirstName="Eric",
+                    LastName ="Van Tillo",
+                    Id = Guid.NewGuid().ToString(),
+                    UserName ="eric",
+                    PasswordHash = hasher.HashPassword("Azerty1234"),
+                    SecurityStamp = Guid.NewGuid().ToString()}
             };
 
             Chauffeurs.ForEach(s => context.Users.Add(s));

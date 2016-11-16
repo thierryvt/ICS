@@ -83,12 +83,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Managers\ApplicationUserManager.cs" />
     <Compile Include="Managers\ChauffeurManager.cs" />
+    <Compile Include="Managers\LoginManager.cs" />
     <Compile Include="Managers\OpdrachtManager.cs" />
     <Compile Include="Managers\RitManager.cs" />
     <Compile Include="Managers\TankbeurtManager.cs" />
     <Compile Include="Managers\VrachtwagenManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OwinStartup.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
