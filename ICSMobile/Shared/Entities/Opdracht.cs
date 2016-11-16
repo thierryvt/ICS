@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Shared.Entities
 {
@@ -9,6 +10,7 @@ namespace Shared.Entities
         public string Naam { get; set; }
         public string Status { get; set; }
         public string Bijlage { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Datum { get; set; }
         public bool Afgehandeld { get; set; }
 

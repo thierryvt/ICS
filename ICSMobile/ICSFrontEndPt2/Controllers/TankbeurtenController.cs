@@ -36,7 +36,7 @@ namespace ICSFrontEndPt2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TankbeurtID,Liter,StartKm,EindKm,NummerPlaat")] Tankbeurt tankbeurt)
+        public ActionResult Create([Bind(Include = "TankbeurtID,Liter,StartKm,EindKm,NummerPlaat,Datum")] Tankbeurt tankbeurt)
         {
             if (ModelState.IsValid)
             {

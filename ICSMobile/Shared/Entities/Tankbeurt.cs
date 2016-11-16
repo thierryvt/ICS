@@ -1,4 +1,6 @@
-﻿namespace Shared.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Shared.Entities
 {
     public class Tankbeurt
     {
@@ -7,6 +9,7 @@
         public double StartKm { get; set; }
         public double EindKm { get; set; }
         public double Verbruik { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime Datum { get; set; }
 
         // foreign key

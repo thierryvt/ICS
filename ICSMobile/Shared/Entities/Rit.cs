@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Shared.Entities
 {
@@ -8,8 +9,11 @@ namespace Shared.Entities
         public string NummerPlaat { get; set; }
         public double BeginKm { get; set; }
         public double EindKm { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Datum { get; set; }
+        [DataType(DataType.Date)]
         public DateTime BeginTijd { get; set; }
+        [DataType(DataType.Date)]
         public DateTime EindTijd { get; set; }
 
         //Foreign keys
