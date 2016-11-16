@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
 using System.Security.Claims;
 using System.Threading.Tasks;
-
+using System.ComponentModel;
 
 namespace Shared.Entities
 {
@@ -12,7 +12,9 @@ namespace Shared.Entities
         public override string Id { get; set; }
         public override string UserName { get; set; }
         public override string Email { get; set; }
+        [DisplayName("Achternaam")]
         public string LastName { get; set; }
+        [DisplayName("Voornaam")]
         public string FirstName { get; set; }
         public string PostalCode { get; set; }
 
