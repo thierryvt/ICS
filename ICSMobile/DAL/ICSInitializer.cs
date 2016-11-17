@@ -20,21 +20,21 @@ namespace DAL
                 new Chauffeur {Email = "patrickvantillo@gmail.com",FirstName="Patrick",
                     LastName ="Van Tillo",
                     Id = Guid.NewGuid().ToString(),
-                    UserName ="patrick",
+                    UserName ="patrickvantillo@gmail.com",
                     PasswordHash = hasher.HashPassword("Azerty1234"),
                     SecurityStamp = Guid.NewGuid().ToString()},
 
                 new Chauffeur {Email = "dimitrivantillo@gmail.com",FirstName="Dimitri",
                     LastName ="Van Tillo",
                     Id = Guid.NewGuid().ToString(),
-                    UserName ="dimitri",
+                    UserName ="dimitrivantillo@gmail.com",
                     PasswordHash = hasher.HashPassword("Azerty1234"),
                     SecurityStamp = Guid.NewGuid().ToString()},
 
                 new Chauffeur {Email = "ericvantillo@gmail.com",FirstName="Eric",
                     LastName ="Van Tillo",
                     Id = Guid.NewGuid().ToString(),
-                    UserName ="eric",
+                    UserName ="ericvantillo@gmail.com",
                     PasswordHash = hasher.HashPassword("Azerty1234"),
                     SecurityStamp = Guid.NewGuid().ToString()}
             };
