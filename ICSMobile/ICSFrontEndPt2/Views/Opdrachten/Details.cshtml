@@ -102,5 +102,6 @@
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.OpdrachtID }) |
+    @Html.ActionLink("Nieuwe rit", "Create", "Ritten", new { nrPlaat = Model.NummerPlaat, opdrachtId = Model.OpdrachtID }, null) |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -55,6 +55,7 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.OpdrachtID }) |
             @Html.ActionLink("Details", "Details", new { id=item.OpdrachtID }) |
+            @Html.ActionLink("Nieuwe rit", "Create", "Ritten", new { nrPlaat = item.NummerPlaat, opdrachtId = item.OpdrachtID }, null) |
             @Html.ActionLink("Delete", "Delete", new { id=item.OpdrachtID })
         </td>
     </tr>
