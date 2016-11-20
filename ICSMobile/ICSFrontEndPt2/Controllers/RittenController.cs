@@ -21,7 +21,7 @@ namespace ICSFrontEndPt2.Controllers
             return View(_ritmanager.FindRitMetChauffeur(id));
         }
 
-        public ActionResult Create(string nrPlaat, int opdrachtId)
+        public ActionResult Create(string nrPlaat, int? opdrachtId)
         {
             PopulateVrachtwagenDropDownList(nrPlaat);
             PopulateOpdrachtDropDownList(opdrachtId);

@@ -17,7 +17,7 @@ namespace BL.Managers
         public void CreateRit(Rit rit)
         {
             Opdracht o = _OpdrachtRepository.FindMetVrachtwagen(rit.OpdrachtID);
-            // Zoek de laatste rit voor de gekozen vrachtwatgen en gebruik daar de eindstand van als nieuwe beginstand
+            // Zoek de laatste rit voor de gekozen vrachtwagen en gebruik daar de eindstand van als nieuwe beginstand
             try
             {
                 rit.BeginKm = _RitRepository.FindLast(rit.NummerPlaat).ToList().LastOrDefault().EindKm;
@@ -33,8 +33,10 @@ namespace BL.Managers
             }
 
 
-            // controleer het totaal km van de vrachtwagen. Indien kleiner dan eindkm van rit, verhoog het totaal km van de vrachtwagen
-            if (rit.EindKm > o._Vrachtwagen.TotaalKM)
+            // controleer het totaal km van de vrachtwagen en of het om dezelfde vrachtwagen gaat. 
+            // Indien dezelfde vrachtwagen en totaal km is kleiner dan eindkm van rit, verhoog het totaal km van die vrachtwagen
+            // Controle zelfde vrachtwagen voor het geval een andere vrachtwagen zich komt moeien met de opdracht.
+            if (rit.EindKm > o._Vrachtwagen.TotaalKM && o.NummerPlaat == rit.NummerPlaat)
             {
                 Vrachtwagen v = _VrachtwagenRepository.Find(o._Vrachtwagen.NummerPlaat);
                 v.TotaalKM = rit.EindKm;
