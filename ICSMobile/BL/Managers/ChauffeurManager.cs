@@ -36,50 +36,57 @@ namespace BL.Managers
         {
             using (SpreadsheetDocument document = SpreadsheetDocument.Create(fileName, SpreadsheetDocumentType.Workbook))
             {
+
+                // Access the main Workbook part, which contains all references.
                 WorkbookPart workbookPart = document.AddWorkbookPart();
                 workbookPart.Workbook = new Workbook();
 
                 WorksheetPart worksheetPart = workbookPart.AddNewPart<WorksheetPart>();
                 worksheetPart.Worksheet = new Worksheet(new SheetData());
 
-                // Insert the text into the SharedStringTablePart.
-                // int index = InsertSharedStringItem(text, shareStringPart);
-
-
-                //// Insert cell A1 into the new worksheet.
-                //Cell cell = InsertCellInWorksheet("A", 1, worksheetPart);
-
-                //// Set the value of cell A1.
-                //cell.CellValue = new CellValue("5");
-                //cell.DataType = new EnumValue<CellValues>(CellValues.SharedString);
-
-                Row r = new Row();
-
-                //Create a new inline string cell.
-                Cell c = new Cell();
-                c.DataType = CellValues.String;
-                c.CellReference = "A5";
-
-                //Add text to the text cell.
-                InlineString inlineString = new InlineString();
-                Text t = new Text();
-                t.Text = "test met cell value";
-                inlineString.AppendChild(t);
-                c.AppendChild(inlineString);
-
-                r.Append(c);
-
                 Sheets sheets = workbookPart.Workbook.AppendChild(new Sheets());
-
                 Sheet sheet = new Sheet() { Id = workbookPart.GetIdOfPart(worksheetPart), SheetId = 1, Name = "Test Sheet" };
 
+                // The SheetData object will contain all the data.
                 SheetData sheetData = worksheetPart.Worksheet.GetFirstChild<SheetData>();
-                sheetData.AppendChild(r);
+                ////Create a new inline string cell.
+                //Cell c = new Cell();
+                //c.DataType = CellValues.String;
+                //c.CellReference = "A5";
 
+                ////Add text to the text cell.
+                //InlineString inlineString = new InlineString();
+                //Text t = new Text();
+                //t.Text = "test met cell value";
+                //inlineString.AppendChild(t);
+                //c.AppendChild(inlineString);
+
+                //Row r = new Row();
+                //r.Append(c);
+                ////Append new row to sheet data.
+                //sheetData.AppendChild(r);
                 sheets.Append(sheet);
 
                 workbookPart.Workbook.Save();
-                document.Close();
+                // document.Close();
+
+
+                //WorkbookPart workbookPart = document.AddWorkbookPart();
+                //workbookPart.Workbook = new Workbook();
+
+                //WorksheetPart worksheetPart = workbookPart.AddNewPart<WorksheetPart>();
+                //worksheetPart.Worksheet = new Worksheet(new SheetData());               
+
+
+
+                //Sheets sheets = workbookPart.Workbook.AppendChild(new Sheets());
+
+                //Sheet sheet = new Sheet() { Id = workbookPart.GetIdOfPart(worksheetPart), SheetId = 1, Name = "Test Sheet" };
+
+                //SheetData sheetData = worksheetPart.Worksheet.GetFirstChild<SheetData>();
+                //sheetData.AppendChild(r);
+
+                //sheets.Append(sheet);
             }
         }
 
