@@ -26,10 +26,10 @@ namespace ICSFrontEndPt2.Controllers
             return View(_chauffeurManager.FindChauffeur(id));
         }
 
-        public ActionResult CreateTest()
+        public ActionResult ExportToExcel(string id)
         {
-            _chauffeurManager.CreateExcelDoc("D:/Users/Dimitri/Desktop/test.xlsx");
-            return View(_chauffeurManager.AlleChauffeurs().ToList());
+            _chauffeurManager.CreateExcel(id);
+            return RedirectToAction("Index");
         }
     }
 }
