@@ -24,18 +24,38 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Alle ritten", "Index", "Ritten")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ritten<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Alle ritten", "Index", "Ritten")</li>
+                            <li>@Html.ActionLink("Nieuwe invoer", "Create", "Ritten")</li>
+                        </ul>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Opdrachten<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Alle opdrachten", "Index", "Opdrachten")</li>
                             <li>@Html.ActionLink("Lopende opdrachten", "Lopende", "Opdrachten")</li>
                             <li>@Html.ActionLink("Afgelopen opdrachten", "Afgelopen", "Opdrachten")</li>
+                            <li>@Html.ActionLink("Nieuwe invoer", "Create", "Opdrachten")</li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("Tankbeurten", "Index", "Tankbeurten")</li>
-                    <li>@Html.ActionLink("Vrachtwagens", "Index", "Vrachtwagens")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tankbeurten<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Alle tankbeurten", "Index", "Tankbeurten")</li>
+                            <li>@Html.ActionLink("Nieuwe invoer", "Create", "Tankbeurten")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vrachtwagens<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Overzicht vrachtwagens", "Index", "Vrachtwagens")</li>
+                            <li>@Html.ActionLink("Nieuwe invoer", "Create", "Vrachtwagens")</li>
+                        </ul>
+                    </li>
+
                     <li>@Html.ActionLink("Chauffeurs", "Index", "Chauffeurs")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

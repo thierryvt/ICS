@@ -51,6 +51,13 @@ namespace DAL.Repositories.EF
                 .Include("_Vrachtwagen")
                 .SingleOrDefault(x => (x.OpdrachtID == id));
         }
+        public Opdracht FindMetVrachtwagenChauffeur(int id)
+        {
+            return _ctx.Opdrachten
+                .Include("_Vrachtwagen")
+                .Include("_Chauffeur")
+                .SingleOrDefault(x => (x.OpdrachtID == id));
+        }
 
         public void Update(Opdracht o)
         {
@@ -80,6 +87,6 @@ namespace DAL.Repositories.EF
                 .AsEnumerable();
         }
 
-
+        
     }
 }

@@ -27,7 +27,7 @@
             @Html.DisplayNameFor(model => model.Afgehandeld)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ChauffeurID)
+            @Html.DisplayNameFor(model => model._Chauffeur.FirstName)
         </th>
         <th></th>
     </tr>
@@ -50,10 +50,10 @@
             @Html.DisplayFor(modelItem => item.Afgehandeld)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ChauffeurID)
+            @Html.DisplayFor(modelItem => item._Chauffeur.FirstName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OpdrachtID }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.OpdrachtID, nrPlaat = item.NummerPlaat, chauffeurId = item.ChauffeurID }) |
             @Html.ActionLink("Details", "Details", new { id=item.OpdrachtID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.OpdrachtID })
         </td>

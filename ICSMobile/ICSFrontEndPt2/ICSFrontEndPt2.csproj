@@ -254,10 +254,8 @@
     <Content Include="Views\Ritten\Details.cshtml" />
     <Content Include="Views\Ritten\Edit.cshtml" />
     <Content Include="Views\Ritten\Index.cshtml" />
-    <Content Include="Views\Opdrachten\Create.cshtml" />
     <Content Include="Views\Opdrachten\Delete.cshtml" />
     <Content Include="Views\Opdrachten\Details.cshtml" />
-    <Content Include="Views\Opdrachten\Edit.cshtml" />
     <Content Include="Views\Opdrachten\Index.cshtml" />
     <Content Include="Views\Tankbeurten\Create.cshtml" />
     <Content Include="Views\Tankbeurten\Delete.cshtml" />
@@ -275,6 +273,8 @@
     <Content Include="Views\Chauffeurs\OpdrachtenRitten.cshtml" />
     <Content Include="Views\Chauffeurs\Details.cshtml" />
     <Content Include="Views\Vrachtwagens\Tankbeurten.cshtml" />
+    <Content Include="Views\Opdrachten\Create.cshtml" />
+    <Content Include="Views\Opdrachten\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

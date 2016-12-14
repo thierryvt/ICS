@@ -2064,6 +2064,10 @@ fieldset[disabled] .btn {
   border-color: #adadad;
 }
 
+.dropdown:hover .dropdown-menu {
+display: block;
+}
+
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
@@ -6816,4 +6820,6 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
+
+
 }

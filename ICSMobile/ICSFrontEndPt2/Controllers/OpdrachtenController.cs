@@ -17,6 +17,8 @@ namespace ICSFrontEndPt2.Controllers
 
 
         private readonly OpdrachtManager _opdrachtmanager = new OpdrachtManager();
+        private readonly ChauffeurManager _chauffeurMaanger = new ChauffeurManager();
+        private readonly VrachtwagenManager _vrachtwagenManager = new VrachtwagenManager();
 
         public ActionResult Index()
         {
@@ -38,8 +40,10 @@ namespace ICSFrontEndPt2.Controllers
             return View(_opdrachtmanager.AlleOpdrachtRitten(id));
         }
 
-        public ActionResult Create()
+        public ActionResult Create(string nrPlaat = null, string chauffeurId = null)
         {
+            PopulateVrachtwagenDropDownList(nrPlaat);
+            PopulateChauffeurDropDownList(chauffeurId);
             return View();
         }
 
@@ -56,26 +60,30 @@ namespace ICSFrontEndPt2.Controllers
             return View(opdracht);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, string nrPlaat, string chauffeurId)
         {
             Opdracht opdracht = _opdrachtmanager.FindOpdracht(id);
             if (opdracht == null)
             {
                 return HttpNotFound();
             }
+            PopulateVrachtwagenDropDownList(nrPlaat);
+            PopulateChauffeurDropDownList(chauffeurId);
             return View(opdracht);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Naam,OpdrachtID,Status,Bijlage,Datum,ChauffeurID")] Opdracht opdracht)
+        public ActionResult Edit(Opdracht opdracht)
         {
             if (ModelState.IsValid)
             {
                 _opdrachtmanager.UpdateOpdracht(opdracht);
                 return RedirectToAction("Index");
             }
+            PopulateVrachtwagenDropDownList(opdracht.ChauffeurID);
+            PopulateChauffeurDropDownList(opdracht.ChauffeurID);
             return View(opdracht);
         }
 
@@ -96,6 +104,17 @@ namespace ICSFrontEndPt2.Controllers
             _opdrachtmanager.Delete(id);
             return RedirectToAction("Index");
         }
-       
+
+        //todo
+        private void PopulateChauffeurDropDownList(object selechtChauffeur = null)
+        {
+            ViewBag.Chauffeur = new SelectList(_chauffeurMaanger.AlleChauffeurs(), "Id", "FirstName", selechtChauffeur);
+        }
+
+        private void PopulateVrachtwagenDropDownList(object selectVrachtwagen = null)
+        {
+            ViewBag.NummerPlaat = new SelectList(_vrachtwagenManager.AlleVrachtwagenen(), "NummerPlaat", "NummerPlaat", selectVrachtwagen);
+        }
+
     }
 }

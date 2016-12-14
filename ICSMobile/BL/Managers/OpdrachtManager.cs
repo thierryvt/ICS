@@ -27,6 +27,12 @@ namespace BL.Managers
             return _OpdrachtRepository.Find(id);
         }
 
+        // ophalen van opdracht met bijhorende vrachtwagen en chauffeur
+        public Opdracht FindVrachtWagenChauffeur(int id)
+        {
+            return _OpdrachtRepository.FindMetVrachtwagenChauffeur(id);
+        }
+
         // Opdracht updaten
         public void UpdateOpdracht(Opdracht opdracht)
         {
@@ -39,12 +45,13 @@ namespace BL.Managers
             _OpdrachtRepository.Delete(id);
         }
 
-        // ophalen van opdracht met alle bijhorende ritten
-
+        // ophalen van opdracht met alle bijhorende ritten  en chauffeurs
         public Opdracht AlleOpdrachtRitten(int id)
         {
             return _OpdrachtRepository.OpdrachtAlleRitten(id);
         }
+
+        
 
         // ophalen alle opdrachten incl chauffeur gegevens
         public IEnumerable<Opdracht> AlleOpdrachttenMetChauffeur()
