@@ -51,6 +51,7 @@ namespace BL.Managers
         // tankbeurt updaten
         public void UpdateTankbeurt(Tankbeurt tankbeurt)
         {
+            tankbeurt.Verbruik = (tankbeurt.Liter / (tankbeurt.EindKm - tankbeurt.StartKm)) * 100;
             _TankbeurtRepository.Update(tankbeurt);
         }
 

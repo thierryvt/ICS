@@ -49,7 +49,7 @@ namespace ICSFrontEndPt2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Naam,OpdrachtID,Status,Bijlage,Datum,ChauffeurID")] Opdracht opdracht)
+        public ActionResult Create(Opdracht opdracht)
         {
             if (ModelState.IsValid)
             {

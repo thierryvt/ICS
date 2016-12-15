@@ -10,7 +10,7 @@ namespace BL.Managers
 {
     class ExcelManager
     {
-        public void createExcel(List<Opdracht> o, string naam, string worksheetName)
+        public XLWorkbook createExcel(List<Opdracht> o, string naam, string worksheetName)
         {
             var wb = new XLWorkbook();
 
@@ -55,9 +55,9 @@ namespace BL.Managers
             rngValues.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
             rngValues.Style.Border.OutsideBorder = XLBorderStyleValues.Thick;
 
+            return wb;
 
-
-            wb.SaveAs("D:/Users/Dimitri/Desktop/test.xlsx");
+            // wb.SaveAs("D:/Users/Dimitri/Desktop/test.xlsx");
 
         }
     }

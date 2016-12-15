@@ -28,12 +28,13 @@ namespace BL.Managers
             return _ChauffeurRepository.Find(id);
         }
 
-        public void CreateExcel(string id)
+        public ClosedXML.Excel.XLWorkbook CreateExcel(string id)
         {
             ExcelManager _excelManager = new ExcelManager();
             Chauffeur test = _ChauffeurRepository.FindAlleOpdrachtenRitten(id);
             List<Opdracht> opdrachten = test.Opdrachten.ToList();
-            _excelManager.createExcel(opdrachten, test.FirstName, "chaffeurs");
+            ClosedXML.Excel.XLWorkbook wb = _excelManager.createExcel(opdrachten, test.FirstName, "chaffeurs");
+            return wb;
         }
     }
 }

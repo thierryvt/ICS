@@ -11,7 +11,6 @@ namespace Shared.Entities
         public string Status { get; set; }
         public string Bijlage { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/mm/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Datum { get; set; }
         public bool Afgehandeld { get; set; }
 
