@@ -18,10 +18,23 @@ namespace DAL.Repositories.EF
 
         public Chauffeur FindAlleOpdrachtenRitten(string id)
         {
-            return _ctx.Users
-                .Include("Opdrachten")
-                .Include("Opdrachten.Ritten")
-                .SingleOrDefault(x => (x.Id == id));
+            //return _ctx.Users
+            //    .Include(o => o.Opdrachten)
+            //    .Include(o => o.Opdrachten.Select(x => x.Ritten))
+            //    // .Where(o => o.Opdrachten.(r => r.Datum == DateTime.Now))
+            //    .SingleOrDefault(x => (x.Id == id));
+
+            _ctx.Configuration.LazyLoadingEnabled = false;
+            var user = _ctx.Users
+                           .Where(u => (u.Id == id))
+                           .Select(u => new
+                           {
+                               User = u,
+                               Opdrachten = u.Opdrachten,
+                               Ritten = u.Opdrachten.SelectMany(o => o.Ritten.Where(r => r.Datum <= DateTime.Today)) 
+                           })
+                           .SingleOrDefault();
+            return user?.User;
         }
 
         public IEnumerable<Chauffeur> GetAllChauffeurs()
